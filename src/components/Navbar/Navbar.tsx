@@ -1,5 +1,5 @@
 import { InstagramFill, Envelope, FacebookFill, Phone } from "akar-icons";
-import logo from "../assets/logo.jpg";
+import logo from "../../assets/logo.jpg";
 
 export default function Navbar() {
   return (
