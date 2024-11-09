@@ -6,22 +6,28 @@ export default function Navbar() {
     <nav className="navbar">
       <ul className="navbar-items">
         <li>
-          <a href="">
+          <a
+            href="https://www.instagram.com/black_book_tattoo_studio/"
+            target="_blank"
+          >
             <InstagramFill size={15} className="navbar-item-icon" />
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="mailto:blackbook@tattoo.studio">
             <Envelope size={15} className="navbar-item-icon" />
           </a>
         </li>
         <li>
-          <a href="">
+          <a
+            href="https://www.facebook.com/profile.php?id=61553848974856"
+            target="_blank"
+          >
             <FacebookFill size={15} className="navbar-item-icon" />
           </a>
         </li>
         <li>
-          <a href="">
+          <a href="tel:+420731724709">
             <Phone size={15} className="navbar-item-icon" />
           </a>
         </li>

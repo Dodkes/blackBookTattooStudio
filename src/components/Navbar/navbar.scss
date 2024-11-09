@@ -1,3 +1,5 @@
+@use "../../breakpoints.scss" as bp;
+
 .navbar {
     background-color: black;
     top: 0;
@@ -31,4 +33,26 @@
         left: 50%;
         transform: translateX(-50%);
     }
+}
+
+@media screen and (max-width: bp.$breakpoint-small) {
+    .navbar {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        height: 60px;
+
+        .navbar-items {
+            position: static;
+
+        }
+
+        >.logo-link {
+            position: static;
+            transform: none;
+        }
+    }
+
 }
