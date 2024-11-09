@@ -7,7 +7,7 @@ export default function Contact() {
         <Envelope className="contact-icon" />
         <div>
           <a className="contact-link" href="tel:+420731724709">
-            + 420 731 724 709
+            +420 731 724 709
           </a>
         </div>
         <div>

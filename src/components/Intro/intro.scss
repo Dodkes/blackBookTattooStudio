@@ -1,4 +1,28 @@
+@use "../../breakpoints.scss" as bp;
+
 .intro-container {
     height: 100vh;
     background-color: rgb(26, 25, 25);
+
+    >.intro-heading {
+        color: white;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-transform: uppercase;
+        text-align: center;
+        font-family: "Ubuntu Mono", monospace;
+        letter-spacing: 5px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-small) {
+    .intro-container {
+        >.intro-heading {
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+    }
 }
