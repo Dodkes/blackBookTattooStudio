@@ -1,0 +1,29 @@
+@use "../../breakpoints.scss" as bp;
+
+.contact-container {
+    padding: 50px;
+    background-color: black;
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    row-gap: 50px;
+
+    .contact-icon {
+        margin: 10px auto;
+    }
+
+    .contact-link {
+        transition: 0.3s;
+
+        &:hover {
+            color: rgba($color: #fff, $alpha: 0.7);
+        }
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-small) {
+    .contact-container {
+        grid-template-columns: auto;
+    }
+}

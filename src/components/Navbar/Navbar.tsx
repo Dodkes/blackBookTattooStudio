@@ -14,7 +14,7 @@ export default function Navbar() {
           </a>
         </li>
         <li>
-          <a href="mailto:blackbook@tattoo.studio">
+          <a href="mailto:mrkkakarko@gmail.com">
             <Envelope size={15} className="navbar-item-icon" />
           </a>
         </li>
