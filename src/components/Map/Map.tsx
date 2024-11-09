@@ -1,4 +1,5 @@
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
+const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
 
 const mapStyles = [
   //terrain color
@@ -41,7 +42,7 @@ export default function Map() {
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyCYilbWkali0T3ahRA2QkHYIgNPcdvaMWk">
+    <LoadScript googleMapsApiKey={apiKey}>
       <GoogleMap
         mapContainerStyle={mapContainerStyle}
         center={center}
