@@ -1,4 +1,9 @@
-import { APIProvider, Map } from "@vis.gl/react-google-maps";
+import {
+  APIProvider,
+  Map,
+  AdvancedMarker,
+  Pin,
+} from "@vis.gl/react-google-maps";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
 
 const mapStyles = [
@@ -50,8 +55,13 @@ export default function MapComponent() {
         style={mapContainerStyle}
         defaultZoom={17}
         defaultCenter={center}
-        styles={mapStyles}
-      ></Map>
+        // styles={mapStyles}
+        mapId={"3279e28a649d0431"}
+      >
+        <AdvancedMarker position={center}>
+          <Pin />
+        </AdvancedMarker>
+      </Map>
     </APIProvider>
   );
 }
