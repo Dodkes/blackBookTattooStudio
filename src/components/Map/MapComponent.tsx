@@ -6,35 +6,6 @@ import {
 } from "@vis.gl/react-google-maps";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
 
-// const mapStyles = [
-//   //terrain color
-//   {
-//     elementType: "geometry",
-//     stylers: [{ color: "#363434" }],
-//   },
-//   //roads color
-//   {
-//     featureType: "road",
-//     elementType: "geometry",
-//     stylers: [{ color: "#262525" }],
-//   },
-//   //disable labels
-//   {
-//     elementType: "labels.icon",
-//     stylers: [{ visibility: "off" }],
-//   },
-//   //color of labels cities
-//   {
-//     elementType: "labels.text.fill",
-//     stylers: [{ color: "#ffffff" }],
-//   },
-//   //border of labels cities
-//   {
-//     elementType: "labels.text.stroke",
-//     stylers: [{ color: "#00000" }],
-//   },
-// ];
-
 export default function MapComponent() {
   const mapContainerStyle = {
     width: "100%",
@@ -53,10 +24,9 @@ export default function MapComponent() {
     >
       <Map
         style={mapContainerStyle}
-        defaultZoom={17}
+        defaultZoom={18}
         defaultCenter={center}
-        // styles={mapStyles}
-        mapId={"3279e28a649d0431"}
+        mapId={"e4ed0a59f2065b17"}
       >
         <AdvancedMarker position={center}>
           <Pin />
