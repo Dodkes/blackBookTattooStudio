@@ -29,7 +29,12 @@ export default function MapComponent() {
         mapId={"e4ed0a59f2065b17"}
       >
         <AdvancedMarker position={center}>
-          <Pin />
+          <Pin
+            background={"white"}
+            glyphColor={"black"}
+            borderColor={"black"}
+            scale={1.5}
+          />
         </AdvancedMarker>
       </Map>
     </APIProvider>
