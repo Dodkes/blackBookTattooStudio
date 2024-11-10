@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Intro from "./components/Intro/Intro";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
-import Map from "./components/Map/Map";
+import MapComponent from "./components/Map/MapComponent";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Intro />
       <Contact />
-      <Map />
+      <MapComponent />
       <Footer />
     </>
   );

@@ -1,4 +1,4 @@
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { APIProvider, Map } from "@vis.gl/react-google-maps";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
 
 const mapStyles = [
@@ -30,7 +30,7 @@ const mapStyles = [
   },
 ];
 
-export default function Map() {
+export default function MapComponent() {
   const mapContainerStyle = {
     width: "100%",
     height: "400px",
@@ -42,13 +42,16 @@ export default function Map() {
   };
 
   return (
-    <LoadScript googleMapsApiKey={apiKey}>
-      <GoogleMap
-        mapContainerStyle={mapContainerStyle}
-        center={center}
-        zoom={18}
-        options={{ styles: mapStyles }}
-      ></GoogleMap>
-    </LoadScript>
+    <APIProvider
+      apiKey={apiKey}
+      onLoad={() => console.log("Maps API has loaded.")}
+    >
+      <Map
+        style={mapContainerStyle}
+        defaultZoom={17}
+        defaultCenter={center}
+        styles={mapStyles}
+      ></Map>
+    </APIProvider>
   );
 }
