@@ -76,3 +76,17 @@
         }
     }
 }
+
+//FAQ Accordion Styles
+.faq-accordion .MuiAccordionSummary-root {
+    min-height: 30px;
+    padding: 4px 8px;
+}
+
+.faq-accordion .MuiAccordionSummary-content {
+    margin: 4px 0;
+}
+
+.faq-accordion .MuiAccordionDetails-root {
+    padding: 8px;
+}

@@ -92,7 +92,13 @@ export default function Faq() {
           <div className="grid-item">
             <h2 className="faq-section-heading">Služby</h2>
             {servicesFaq.map((faqItem, index) => (
-              <Accordion sx={accordionStyle} key={index}>
+              <Accordion
+                key={index}
+                {...(index !== paymentFaq.length - 1
+                  ? { sx: accordionStyle }
+                  : { sx: { ...accordionStyle, borderBottom: "none" } })}
+                className="faq-accordion"
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#686464" }} />}
                   aria-controls="panel1-content"
@@ -107,7 +113,13 @@ export default function Faq() {
           <div className="grid-item">
             <h2 className="faq-section-heading">Platby</h2>
             {paymentFaq.map((faqItem, index) => (
-              <Accordion sx={accordionStyle} key={index}>
+              <Accordion
+                {...(index !== paymentFaq.length - 1
+                  ? { sx: accordionStyle }
+                  : { sx: { ...accordionStyle, borderBottom: "none" } })}
+                key={index}
+                className="faq-accordion"
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#686464" }} />}
                   aria-controls="panel1-content"
@@ -122,7 +134,13 @@ export default function Faq() {
           <div className="grid-item">
             <h2 className="faq-section-heading">Praktické dotazy</h2>
             {practicalFaq.map((faqItem, index) => (
-              <Accordion sx={accordionStyle} key={index}>
+              <Accordion
+                {...(index !== paymentFaq.length - 1
+                  ? { sx: accordionStyle }
+                  : { sx: { ...accordionStyle, borderBottom: "none" } })}
+                key={index}
+                className="faq-accordion"
+              >
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon sx={{ color: "#686464" }} />}
                   aria-controls="panel1-content"
