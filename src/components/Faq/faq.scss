@@ -1,0 +1,76 @@
+@use "../../breakpoints.scss" as bp;
+
+.faq-container {
+    background-color: black;
+    color: white;
+
+    >.faq-content-container {
+        padding: 50px;
+        width: 80%;
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+
+        >.faq-heading {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        >.grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+
+            >.grid-item {
+                >.faq-section-heading {
+                    color: white;
+                    text-transform: uppercase;
+                    letter-spacing: 5px;
+                    border-bottom: 1px solid #686464;
+                    padding-bottom: 10px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-small) {
+    .faq-container {
+        >.faq-content-container {
+            padding: 20px;
+
+            >.faq-heading {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+
+            >.grid-container {
+                grid-template-columns: auto;
+                gap: 20px;
+                margin: 20px 20px 0 20px;
+
+                >.grid-item {
+
+                    >.faq-section-heading {
+                        font-size: 15px;
+                        letter-spacing: 1px;
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-medium) {
+    .faq-container {
+        >.faq-content-container {
+            width: 100%;
+        }
+    }
+}
