@@ -93,6 +93,7 @@ export default function Faq() {
             <h2 className="faq-section-heading">Služby</h2>
             {servicesFaq.map((faqItem, index) => (
               <Accordion
+                disableGutters
                 key={index}
                 {...(index !== paymentFaq.length - 1
                   ? { sx: accordionStyle }
@@ -114,6 +115,7 @@ export default function Faq() {
             <h2 className="faq-section-heading">Platby</h2>
             {paymentFaq.map((faqItem, index) => (
               <Accordion
+                disableGutters
                 {...(index !== paymentFaq.length - 1
                   ? { sx: accordionStyle }
                   : { sx: { ...accordionStyle, borderBottom: "none" } })}
@@ -135,6 +137,7 @@ export default function Faq() {
             <h2 className="faq-section-heading">Praktické dotazy</h2>
             {practicalFaq.map((faqItem, index) => (
               <Accordion
+                disableGutters
                 {...(index !== paymentFaq.length - 1
                   ? { sx: accordionStyle }
                   : { sx: { ...accordionStyle, borderBottom: "none" } })}
