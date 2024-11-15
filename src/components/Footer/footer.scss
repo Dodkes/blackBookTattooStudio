@@ -1,7 +1,46 @@
+@use "../../breakpoints.scss" as bp;
+
 .footer-container {
-    background-color: #5b5b5b;
-    padding: 10px 15px;
-    color: hsla(0, 0%, 100%, .5);
-    text-align: center;
-    font-size: 15px;
+    >.footer-bottom-inline {
+        background-color: #5b5b5b;
+        padding: 10px 15px;
+        color: hsla(0, 0%, 100%, .5);
+        text-align: center;
+        font-size: 15px;
+    }
+
+    >.footer-contact-container {
+        background-color: black;
+        padding: 50px 0;
+
+        >.footer-contact-line {
+            width: 73%;
+            margin: auto;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+
+            >.footer-contact-item {
+                font-size: 13px;
+                text-align: center;
+
+                >ul {
+                    display: flex;
+                    justify-content: center;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-small) {
+    .footer-container {
+        >.footer-contact-container {
+            >.footer-contact-line {
+                flex-direction: column;
+                gap: 50px;
+            }
+        }
+    }
 }
