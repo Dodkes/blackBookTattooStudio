@@ -81,12 +81,15 @@
 .faq-accordion .MuiAccordionSummary-root {
     min-height: 30px;
     padding: 4px 8px;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 .faq-accordion .MuiAccordionSummary-content {
-    margin: 4px 0;
+    margin: 0;
 }
 
 .faq-accordion .MuiAccordionDetails-root {
     padding: 8px;
+    font-size: 12px;
 }
