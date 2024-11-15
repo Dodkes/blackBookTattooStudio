@@ -28,6 +28,16 @@
                     display: flex;
                     justify-content: center;
                     gap: 10px;
+
+                    .footer-item-icon {
+                        color: white;
+                        transition: 0.3s;
+
+                        &:hover {
+                            color: rgba($color: #fff, $alpha: 0.7);
+                            transform: scale(1.2);
+                        }
+                    }
                 }
             }
         }

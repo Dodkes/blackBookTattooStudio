@@ -36,12 +36,12 @@ export default function Footer() {
                   href="https://www.instagram.com/black_book_tattoo_studio/"
                   target="_blank"
                 >
-                  <InstagramFill size={15} className="navbar-item-icon" />
+                  <InstagramFill size={15} className="footer-item-icon" />
                 </a>
               </li>
               <li>
                 <a href="mailto:mrkkakarko@gmail.com">
-                  <Envelope size={15} className="navbar-item-icon" />
+                  <Envelope size={15} className="footer-item-icon" />
                 </a>
               </li>
               <li>
@@ -49,12 +49,12 @@ export default function Footer() {
                   href="https://www.facebook.com/profile.php?id=61553848974856"
                   target="_blank"
                 >
-                  <FacebookFill size={15} className="navbar-item-icon" />
+                  <FacebookFill size={15} className="footer-item-icon" />
                 </a>
               </li>
               <li>
                 <a href="tel:+420731724709">
-                  <Phone size={15} className="navbar-item-icon" />
+                  <Phone size={15} className="footer-item-icon" />
                 </a>
               </li>
             </ul>
