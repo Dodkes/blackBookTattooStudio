@@ -2,10 +2,16 @@
 
 .gallery-container {
     background-color: black;
-    padding: 50px;
+    padding: 50px 100px;
 }
 
 .swiper .swiper-button-next,
 .swiper .swiper-button-prev {
     color: #ffffff;
+}
+
+@media (max-width: bp.$breakpoint-small) {
+    .gallery-container {
+        padding: 25px;
+    }
 }
