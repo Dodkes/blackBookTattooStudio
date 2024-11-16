@@ -1,0 +1,11 @@
+@use "../../breakpoints.scss" as bp;
+
+.gallery-container {
+    background-color: black;
+    padding: 50px;
+}
+
+.swiper .swiper-button-next,
+.swiper .swiper-button-prev {
+    color: #ffffff;
+}
