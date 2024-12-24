@@ -6,8 +6,10 @@ import Footer from "./components/Footer/Footer";
 import MapComponent from "./components/Map/MapComponent";
 import Faq from "./components/Faq/Faq";
 import Gallery from "./components/Gallery/Gallery";
+import { Routes, Route } from "react-router-dom";
+import OrderPage from "./components/OrderPage/OrderPage";
 
-function App() {
+function Home() {
   return (
     <>
       <Navbar />
@@ -17,6 +19,17 @@ function App() {
       <MapComponent />
       <Faq />
       <Footer />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/order" element={<OrderPage />} />
+      </Routes>
     </>
   );
 }
