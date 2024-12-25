@@ -40,11 +40,18 @@ function OrderBody() {
       ),
   });
 
-  const handleSubmit = (values: FormValues) => {
+  const handleSubmit = async (values: FormValues) => {
     try {
-      console.log(values);
+      await fetch("http://localhost:8080/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
     } catch (error) {
-      console.error(error);
+      console.log(error);
+      alert("Něco se pokazilo, zkuste to prosím znovu");
     }
   };
 
