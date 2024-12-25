@@ -23,6 +23,27 @@
         height: 100vh;
         object-fit: cover;
     }
+
+    .button-make-order {
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        background-color: rgb(26, 25, 25);
+        font-weight: bold;
+        border: 2px solid white;
+        color: white;
+        padding: 5px 20px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background-color: white;
+            color: rgb(26, 25, 25);
+            border: 2px solid rgb(26, 25, 25);
+        }
+    }
 }
 
 @media screen and (max-width: bp.$breakpoint-small) {
