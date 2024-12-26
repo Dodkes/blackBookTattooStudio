@@ -9,6 +9,7 @@ import Gallery from "./components/Gallery/Gallery";
 import { Routes, Route } from "react-router-dom";
 import OrderPage from "./components/OrderPage/OrderPage";
 import OrderSuccess from "./components/OrderPage/OrderSuccess/OrderSuccess";
+import OrderFailure from "./components/OrderPage/OrderFailure/OrderFailure";
 
 function Home() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/order" element={<OrderPage />} />
         <Route path="/order/success" element={<OrderSuccess />} />
+        <Route path="/order/failure" element={<OrderFailure />} />
       </Routes>
     </>
   );

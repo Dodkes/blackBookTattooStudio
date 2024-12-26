@@ -55,6 +55,7 @@ function OrderBody() {
       navigate("/order/success");
     } catch (error) {
       console.log(error);
+      navigate("/order/failure");
     }
   };
 
