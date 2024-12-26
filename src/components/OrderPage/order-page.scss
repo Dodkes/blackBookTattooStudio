@@ -1,0 +1,132 @@
+@use "../../breakpoints.scss" as bp;
+
+.order-page-container {
+    height: 100vh;
+    background-color: rgb(26, 25, 25);
+    color: white;
+
+    >.order-body-container {
+        height: 100%;
+        background-color: rgb(26, 25, 25);
+
+        >.order-heading {
+            text-transform: uppercase;
+            text-align: center;
+            letter-spacing: 5px;
+            font-size: 20px;
+            width: 60%;
+            margin: 30px auto;
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+    }
+
+    .order-form {
+        position: relative;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 60%;
+        gap: 20px;
+
+        >.order-form-field {
+
+            >input {
+                width: 100%;
+                color: black;
+                outline: none;
+                margin-top: 10px;
+                padding: 5px;
+                font-weight: bold;
+            }
+
+            >select {
+                width: 100%;
+                color: black;
+                outline: none;
+                margin-top: 10px;
+                padding: 5px;
+                font-weight: bold;
+                height: 38px;
+            }
+
+            & textarea {
+                width: 100%;
+                color: black;
+                outline: none;
+                margin-top: 10px;
+                padding: 5px;
+                font-weight: bold;
+                resize: none;
+                height: 114px;
+            }
+
+            &.message {
+                grid-column: 1/3;
+            }
+
+            >.form-field-error-message {
+                color: red;
+                font-size: 12px;
+                margin-top: 5px;
+                height: 12px;
+            }
+        }
+
+        >.button-order-submit {
+            grid-column: 1/3;
+            background-color: rgb(26, 25, 25);
+            font-weight: bold;
+            border: 2px solid white;
+            color: white;
+            padding: 5px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+
+            &:disabled {
+                border: 2px solid #5b5b5b;
+                color: #5b5b5b;
+                cursor: not-allowed;
+            }
+
+            &:hover:enabled {
+                background-color: white;
+                color: rgb(26, 25, 25);
+                border: 2px solid rgb(26, 25, 25);
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: bp.$breakpoint-medium) {
+    .order-page-container {
+        >.order-body-container {
+            height: auto;
+            padding-bottom: 100px;
+        }
+
+        .order-form-field {
+            grid-column: 1/3;
+        }
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-large) {
+    .order-page-container {
+        >.order-body-container {
+            >.order-heading {
+                font-size: 15px;
+                letter-spacing: 1px;
+                width: 85%;
+            }
+        }
+
+        .order-form {
+            width: 85%;
+        }
+
+    }
+}

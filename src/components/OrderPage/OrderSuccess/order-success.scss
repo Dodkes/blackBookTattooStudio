@@ -1,0 +1,55 @@
+@use "../../../breakpoints.scss" as bp;
+
+.order-success-container {
+    height: 100vh;
+    background-color: rgb(26, 25, 25);
+
+    >.footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    >.order-message-container {
+        font-size: 15px;
+        text-align: center;
+        color: white;
+        width: fit-content;
+        margin: auto;
+        padding: 10px;
+        margin-top: 250px;
+
+        >h1 {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        >button {
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: transparent;
+            border: none;
+            transition: 0.3s;
+
+            &:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: bp.$breakpoint-small) {
+    .order-success-container {
+        >.order-message-container {
+            font-size: 10px;
+            margin-top: 150px;
+
+            >h1 {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+        }
+    }
+}

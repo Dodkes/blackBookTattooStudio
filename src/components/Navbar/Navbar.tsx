@@ -1,5 +1,6 @@
 import { InstagramFill, Envelope, FacebookFill, Phone } from "akar-icons";
 import logo from "../../assets/logo.jpg";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -32,9 +33,9 @@ export default function Navbar() {
           </a>
         </li>
       </ul>
-      <a className="logo-link" href="">
+      <Link className="logo-link" to="/">
         <img src={logo} width={200} />
-      </a>
+      </Link>
     </nav>
   );
 }

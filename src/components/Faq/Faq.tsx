@@ -21,7 +21,7 @@ export default function Faq() {
     {
       question: "Předěláváte tetování?",
       answer:
-        "Ano, provádíme tetování, v takovém případě doporučujeme osobní konzultaci ve studiu.",
+        "Ano, předělávame tetování, v takovém případě doporučujeme osobní konzultaci ve studiu.",
     },
 
     {
@@ -45,7 +45,7 @@ export default function Faq() {
   const paymentFaq: FaqProps = [
     {
       question: "Jaké platební metody přijímáte?",
-      answer: "Přijímáme platby v hotovosti a platební kartou",
+      answer: "Přijímáme platby v hotovosti a platební kartou.",
     },
     {
       question: "Můžu platit kartou?",
