@@ -33,7 +33,7 @@ export default function Navbar() {
           </a>
         </li>
       </ul>
-      <Link className="logo-link" to="/">
+      <Link className="logo-link" to="/blackBookTattooStudio">
         <img src={logo} width={200} />
       </Link>
     </nav>
