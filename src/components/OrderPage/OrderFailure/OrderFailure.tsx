@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function OrderFailure() {
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/order");
+    navigate("/blackBookTattooStudio/order");
   };
 
   return (

@@ -5,7 +5,7 @@ export default function Intro() {
   return (
     <div className="intro-container">
       <h1 className="intro-heading">Profesionální tetovací studio v Čechách</h1>
-      <Link to="/order">
+      <Link to="/blackBookTattooStudio/order">
         <button className="button-make-order">Objednat si termín</button>
       </Link>
       <video className="intro-video" autoPlay loop muted playsInline>

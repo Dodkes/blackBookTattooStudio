@@ -29,10 +29,16 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/order" element={<OrderPage />} />
-        <Route path="/order/success" element={<OrderSuccess />} />
-        <Route path="/order/failure" element={<OrderFailure />} />
+        <Route path="/blackBookTattooStudio" element={<Home />} />
+        <Route path="/blackBookTattooStudio/order" element={<OrderPage />} />
+        <Route
+          path="/blackBookTattooStudio/order/success"
+          element={<OrderSuccess />}
+        />
+        <Route
+          path="/blackBookTattooStudio/order/failure"
+          element={<OrderFailure />}
+        />
       </Routes>
     </>
   );

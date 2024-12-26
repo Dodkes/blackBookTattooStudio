@@ -52,10 +52,10 @@ function OrderBody() {
         },
         body: JSON.stringify(values),
       });
-      navigate("/order/success");
+      navigate("/blackBookTattooStudio/order/success");
     } catch (error) {
       console.log(error);
-      navigate("/order/failure");
+      navigate("/blackBookTattooStudio/order/failure");
     }
   };
 
