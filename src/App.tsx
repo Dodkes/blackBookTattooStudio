@@ -8,6 +8,7 @@ import Faq from "./components/Faq/Faq";
 import Gallery from "./components/Gallery/Gallery";
 import { Routes, Route } from "react-router-dom";
 import OrderPage from "./components/OrderPage/OrderPage";
+import OrderSuccess from "./components/OrderPage/OrderSuccess/OrderSuccess";
 
 function Home() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/order" element={<OrderPage />} />
+        <Route path="/order/success" element={<OrderSuccess />} />
       </Routes>
     </>
   );

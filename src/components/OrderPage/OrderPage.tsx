@@ -2,6 +2,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 type FormValues = {
   name: string;
@@ -14,6 +15,8 @@ type FormValues = {
 };
 
 function OrderBody() {
+  const navigate = useNavigate();
+
   const formInitialValues = {
     name: "",
     surname: "",
@@ -49,9 +52,9 @@ function OrderBody() {
         },
         body: JSON.stringify(values),
       });
+      navigate("/order/success");
     } catch (error) {
       console.log(error);
-      alert("Něco se pokazilo, zkuste to prosím znovu");
     }
   };
 

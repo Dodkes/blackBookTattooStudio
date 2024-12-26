@@ -35,7 +35,7 @@ app.post("/order", (req, res) => {
 
   const mailTemplate = `
     <div style="background-color:rgb(26, 25, 25); padding: 20px; color: white; border-radius: 5px;">
-    <h1 style="text-align: center; background-color: black;">Nová objednávka</h1>
+    <h1 style="text-align: center;">Nová objednávka</h1>
     <h3>Detaily objednávky:</h3>
     <ul>
     <li>Jméno: ${data.name}</li>
