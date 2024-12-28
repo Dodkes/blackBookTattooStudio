@@ -1,4 +1,5 @@
 import { InstagramFill, Envelope, FacebookFill, Phone } from "akar-icons";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -26,8 +27,10 @@ export default function Footer() {
             </p>
           </div>
           <div className="footer-contact-item">
-            <p>Otevírací hodiny</p>
-            <p>Na objednávku</p>
+            <Link to="/blackBookTattooStudio/order">
+              <p>Otevírací hodiny</p>
+              <p>Na objednávku</p>
+            </Link>
           </div>
           <div className="footer-contact-item">
             <ul>
