@@ -78,7 +78,6 @@ function OrderBody() {
           <form className="order-form" onSubmit={handleSubmit}>
             <div className="order-form-field">
               <label htmlFor="name">Jméno *</label>
-              <br />
               <input
                 type="text"
                 name="name"
@@ -89,7 +88,6 @@ function OrderBody() {
             </div>
             <div className="order-form-field">
               <label htmlFor="surname">Příjmení *</label>
-              <br />
               <input
                 type="text"
                 name="surname"
@@ -100,7 +98,6 @@ function OrderBody() {
             </div>
             <div className="order-form-field">
               <label htmlFor="email">Email *</label>
-              <br />
               <input
                 type="email"
                 name="email"
@@ -112,7 +109,6 @@ function OrderBody() {
             </div>
             <div className="order-form-field">
               <label htmlFor="phone">Telefon *</label>
-              <br />
               <input
                 type="tel"
                 name="phone"
@@ -123,7 +119,6 @@ function OrderBody() {
             </div>
             <div className="order-form-field">
               <label htmlFor="service">Výběr služby</label>
-              <br />
               <select
                 name="service"
                 defaultValue={values.service}
@@ -135,7 +130,6 @@ function OrderBody() {
             </div>
             <div className="order-form-field">
               <label htmlFor="color">Barva</label>
-              <br />
               <select
                 name="color"
                 defaultValue={values.color}
