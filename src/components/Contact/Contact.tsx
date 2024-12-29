@@ -1,4 +1,5 @@
 import { Clock, Envelope, Location } from "akar-icons";
+import { Link } from "react-router-dom";
 
 export default function Contact() {
   return (
@@ -31,7 +32,9 @@ export default function Contact() {
       </div>
       <div>
         <Clock className="contact-icon" />
-        <p>K objednání</p>
+        <Link to={"/blackBookTattooStudio/order"} className="contact-link">
+          Na objednávku
+        </Link>
       </div>
     </div>
   );
