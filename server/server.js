@@ -2,6 +2,8 @@ import express from "express";
 import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
+import logger from "./logger.js";
+
 dotenv.config();
 const app = express();
 const PORT = 8080;
@@ -17,16 +19,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-function log(req, res) {
-  const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-  console.log(
-    `[INFO] Resuest from: ${ip} | ${new Date()} ${req.method} ${req.url}`
-  );
-}
-
 app.post("/order", (req, res) => {
-  console.log("[INFO]: Order received!");
-  log(req, res);
+  logger.info(`/order POST received [IP: ${req.ip}]`);
   const data = req.body;
   const date = `${new Date().getDate()}.${
     new Date().getMonth() + 1
@@ -63,14 +57,14 @@ app.post("/order", (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("Error sending email:", error);
+      logger.error(`Error sending email: ${error}`);
       return res.status(500).send("Error sending email.");
     }
-    console.log("Email sent:", info.response);
+    logger.info("Email sent:", info.response);
     res.status(200).send("Order sent successfully!");
   });
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  logger.info(`Server started and listening on port ${PORT}`);
 });
