@@ -37,12 +37,11 @@
 }
 
 @media screen and (max-width: bp.$breakpoint-small) {
-    * {}
-
     .order-success-container {
         >.order-message-container {
             font-size: 10px;
             margin-top: 150px;
+            margin-bottom: 150px;
 
             >h1 {
                 font-size: 15px;
