@@ -53,7 +53,7 @@ function OrderBody() {
         body: JSON.stringify(values),
       });
       navigate("/blackBookTattooStudio/order/success");
-      scroll(30, 30);
+      scroll(0, 0);
     } catch (error) {
       console.log(error);
       navigate("/blackBookTattooStudio/order/failure");
