@@ -10,6 +10,7 @@ import { Routes, Route } from "react-router-dom";
 import OrderPage from "./components/OrderPage/OrderPage";
 import OrderSuccess from "./components/OrderPage/OrderSuccess/OrderSuccess";
 import OrderFailure from "./components/OrderPage/OrderFailure/OrderFailure";
+import ScrollToTop from "./components/utils/ScrollToTop";
 
 function Home() {
   return (
@@ -28,6 +29,7 @@ function Home() {
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Routes>
         <Route path="/blackBookTattooStudio" element={<Home />} />
         <Route path="/blackBookTattooStudio/order" element={<OrderPage />} />
