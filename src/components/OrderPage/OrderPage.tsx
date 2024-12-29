@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 type FormValues = {
   name: string;
@@ -11,11 +12,12 @@ type FormValues = {
   phone: string;
   message: string;
   service: string;
-  color: string;
+  type: string;
 };
 
 function OrderBody() {
   const navigate = useNavigate();
+  const [isBarber, setIsBarber] = useState(false);
 
   const formInitialValues = {
     name: "",
@@ -24,7 +26,7 @@ function OrderBody() {
     phone: "",
     message: "",
     service: "tattoo",
-    color: "black",
+    type: "black",
   };
 
   const formValidationSchema = Yup.object().shape({
@@ -122,25 +124,44 @@ function OrderBody() {
               <select
                 name="service"
                 defaultValue={values.service}
-                onChange={handleChange}
+                onChange={(e) => {
+                  handleChange(e);
+                  if (e.target.value === "barber") {
+                    setIsBarber(true);
+                  } else {
+                    setIsBarber(false);
+                  }
+                }}
               >
                 <option value="tattoo">Tetování</option>
                 <option value="barber">Barber</option>
               </select>
             </div>
             <div className="order-form-field">
-              <label htmlFor="color">Barva</label>
+              <label htmlFor="type">{isBarber ? "Střihání" : "Barva"}</label>
               <select
-                name="color"
-                defaultValue={values.color}
+                name="type"
+                defaultValue={values.type}
                 onChange={handleChange}
               >
-                <option value="black">Černá</option>
-                <option value="colorful">Barevná</option>
+                {isBarber ? (
+                  <>
+                    <option value="hair">Vlasy</option>
+                    <option value="chin">Brada</option>
+                    <option value="hair_chin">Vlasy + Brada</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="black">Černá</option>
+                    <option value="colorful">Barevná</option>
+                  </>
+                )}
               </select>
             </div>
             <div className="order-form-field message">
-              <label htmlFor="message">Popis tetování</label>
+              <label htmlFor="message">
+                {isBarber ? "Popis střihu" : "Popis tetování"}
+              </label>
               <textarea
                 maxLength={1000}
                 name="message"

@@ -40,8 +40,7 @@ app.post("/order", (req, res) => {
     ${data.phone}
     </a>
     </li>
-    <li>Služba: ${data.service}</li>
-    <li>Barva: ${data.color}</li>
+    <li>Služba: ${data.service} - ${data.type}</li>
     <li>Zpráva: ${data.message}</li>
     </ul>
     <p style="text-align: right;">Vytvořená: ${date} (${time})</p>
