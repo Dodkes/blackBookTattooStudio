@@ -59,7 +59,7 @@ app.post("/order", (req, res) => {
       logger.error(`Error sending email: ${error}`);
       return res.status(500).send("Error sending email.");
     }
-    logger.info("Email sent:", info.response);
+    logger.info("Email order sent:", info.response);
     res.status(200).send("Order sent successfully!");
   });
 });
