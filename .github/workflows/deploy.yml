@@ -24,6 +24,8 @@ jobs:
       - name: Build React app
         env:
           VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }} # Ref to Github Secrets
+          SECRET_KEY: ${{ secrets.SECRET_KEY }} # Ref to Github Secrets recaptcha backend
+          SITE_KEY: ${{ secrets.SITE_KEY }} # Ref to Github Secrets recaptcha frontend
         run: npm run build
 
       - name: Deploy to GitHub Pages

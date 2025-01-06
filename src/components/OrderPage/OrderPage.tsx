@@ -7,6 +7,7 @@ import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const SITE_KEY = import.meta.env.VITE_SITE_KEY;
+const HOST = import.meta.env.VITE_HOST;
 
 type FormValues = {
   name: string;
@@ -65,7 +66,7 @@ function OrderBody() {
       recaptchaToken,
     };
 
-    const response = await fetch("http://localhost:8080/order", {
+    const response = await fetch(`${HOST}/order`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
