@@ -4,6 +4,9 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+
+const SITE_KEY = import.meta.env.VITE_SITE_KEY;
 
 type FormValues = {
   name: string;
@@ -18,6 +21,7 @@ type FormValues = {
 function OrderBody() {
   const navigate = useNavigate();
   const [isBarber, setIsBarber] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
 
   const formInitialValues = {
     name: "",
@@ -45,18 +49,32 @@ function OrderBody() {
       ),
   });
 
+  const generateRecaptchaToken = (token: string | null) => {
+    if (token) {
+      setRecaptchaToken(token);
+    }
+  };
+
   const handleSubmit = async (values: FormValues) => {
-    try {
-      await fetch("http://localhost:8080/order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+    if (!recaptchaToken) {
+      return alert("Prosím, potvrďte, že nejste robot.");
+    }
+
+    const body = {
+      ...values,
+      recaptchaToken,
+    };
+
+    const response = await fetch("http://localhost:8080/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    if (response.ok) {
       navigate("/blackBookTattooStudio/order/success");
-    } catch (error) {
-      console.log(error);
+    } else {
       navigate("/blackBookTattooStudio/order/failure");
     }
   };
@@ -170,6 +188,11 @@ function OrderBody() {
                 placeholder="Zpráva"
               />
             </div>
+            <ReCAPTCHA
+              sitekey={SITE_KEY}
+              onChange={generateRecaptchaToken}
+              onExpired={() => setRecaptchaToken("")}
+            />
             <button
               disabled={isSubmitting || !isValid}
               className="button-order-submit"

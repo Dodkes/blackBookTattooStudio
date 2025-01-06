@@ -19,7 +19,43 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/order", (req, res) => {
+async function validateRecaptcha(token) {
+  try {
+    const response = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: process.env.SECRET_KEY,
+          response: token,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    return data.success; // Returns true if token is valid
+  } catch (error) {
+    logger.error("Error validating reCAPTCHA:", error);
+    return false;
+  }
+}
+
+app.post("/order", async (req, res) => {
+  const token = req.body.recaptchaToken;
+
+  if (!token) {
+    logger.error("No token provided.");
+    return res.status(400).send("No token provided.");
+  }
+
+  const isRecaptchaTokenValid = await validateRecaptcha(token);
+
+  if (!isRecaptchaTokenValid) {
+    logger.error("Recaptcha verification failed.");
+    return res.status(400).send("Recaptcha verification failed.");
+  }
+
   logger.info(`/order POST received [IP: ${req.ip}]`);
   const data = req.body;
   const date = `${new Date().getDate()}.${
