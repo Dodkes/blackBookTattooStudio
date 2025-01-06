@@ -6,8 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
-// const SITE_KEY = import.meta.env.VITE_SITE_KEY;
-const SITE_KEY = "6Lcala8qAAAAAHyba6DON_8Bze2BALdPbUFMRQAn";
+const SITE_KEY = import.meta.env.VITE_SITE_KEY;
 const HOST = import.meta.env.VITE_HOST;
 
 type FormValues = {
