@@ -34,7 +34,7 @@ async function validateRecaptcha(token) {
     );
 
     const data = await response.json();
-    return data.success; // Returns true if token is valid
+    return data.success;
   } catch (error) {
     logger.error("Error validating reCAPTCHA:", error);
     return false;
