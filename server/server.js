@@ -27,7 +27,7 @@ async function validateRecaptcha(token) {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams({
-          secret: process.env.SECRET_KEY,
+          secret: process.env.VITE_SECRET_KEY,
           response: token,
         }),
       }
