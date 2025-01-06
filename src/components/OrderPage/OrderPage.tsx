@@ -189,6 +189,10 @@ function OrderBody() {
                 placeholder="Zpráva"
               />
             </div>
+            <div>
+              {!recaptchaToken && <p>Prosím, potvrďte, že nejste robot.</p>}
+            </div>
+            <br />
             <ReCAPTCHA
               sitekey={SITE_KEY}
               onChange={generateRecaptchaToken}
