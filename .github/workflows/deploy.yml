@@ -3,8 +3,8 @@ name: Deploy App to GitHub Pages
 on:
   push:
     branches:
-      - main # Trigger deployment on push to the main branch. Change if necessary.
-  workflow_dispatch: # Trigger deployment manually
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -17,17 +17,20 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Ensure this matches your project’s Node.js version
+          node-version: "18"
 
       - name: Install dependencies
         run: npm install
 
       - name: Build React app
         env:
-          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }} # Ref to Github Secrets
+          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }} # Ref to Google Maps API Key
           VITE_SECRET_KEY: ${{ secrets.VITE_SECRET_KEY }} # Ref to Github Secrets recaptcha backend
           VITE_SITE_KEY: ${{ secrets.VITE_SITE_KEY }} # Ref to Github Secrets recaptcha frontend
         run: npm run build
+
+      - name: Print build size
+        run: ./scripts/build-size.sh
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
