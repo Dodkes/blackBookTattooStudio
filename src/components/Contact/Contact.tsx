@@ -32,7 +32,7 @@ export default function Contact() {
       </div>
       <div>
         <Clock className="contact-icon" />
-        <Link to={"/blackBookTattooStudio/order"} className="contact-link">
+        <Link to={"/order"} className="contact-link">
           Na objednávku
         </Link>
       </div>

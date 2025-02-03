@@ -74,9 +74,9 @@ function OrderBody() {
       body: JSON.stringify(body),
     });
     if (response.ok) {
-      navigate("/blackBookTattooStudio/order/success");
+      navigate("/order/success");
     } else {
-      navigate("/blackBookTattooStudio/order/failure");
+      navigate("/order/failure");
     }
   };
 

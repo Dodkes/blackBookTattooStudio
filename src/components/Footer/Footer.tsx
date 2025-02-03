@@ -27,7 +27,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="footer-contact-item">
-            <Link to="/blackBookTattooStudio/order">
+            <Link to="/order">
               <p>Otevírací hodiny</p>
               <p>Na objednávku</p>
             </Link>
