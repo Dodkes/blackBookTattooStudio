@@ -2,6 +2,13 @@
 
 _This is a project for a tattoo studio & barbershop._
 
+### Running nginx & express.js:
+
+#### App running on `/var/www/`
+
+- in `/html` serving static files
+- in `/server` running the express server on port `80`
+
 ## Set up project
 
 Client side:
