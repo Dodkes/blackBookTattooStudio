@@ -35,9 +35,9 @@ jobs:
       - name: Print build size
         run: ./scripts/build-size.sh
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist # directory to deploy
-          publish_branch: gh-pages # branch for deployment
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./dist # directory to deploy
+      #     publish_branch: gh-pages # branch for deployment
