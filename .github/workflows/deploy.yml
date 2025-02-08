@@ -35,6 +35,11 @@ jobs:
       - name: Print build size
         run: ./scripts/build-size.sh
 
+      - name: Copy static files
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: ./scripts/deploy-front-end.sh
+
       # - name: Deploy to GitHub Pages
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
