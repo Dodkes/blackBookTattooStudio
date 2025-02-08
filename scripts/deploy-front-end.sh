@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .env
+set -e #exit on any error
 
 mkdir -p ~/.ssh
 echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
