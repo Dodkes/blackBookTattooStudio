@@ -3,12 +3,28 @@ import nodemailer from "nodemailer";
 import cors from "cors";
 import dotenv from "dotenv";
 import logger from "./logger.js";
+import https from "https";
+import fs from "fs";
 
 dotenv.config();
 const app = express();
 const PORT = 8080;
 app.use(cors());
 app.use(express.json());
+//Load the SSL certificate and key
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/blackbooktattoostudio.cz/privkey.pem",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/blackbooktattoostudio.cz/cert.pem",
+  "utf8"
+);
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+};
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -100,6 +116,6 @@ app.post("/order", async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
+https.createServer(credentials, app).listen(PORT, () => {
   logger.info(`Server started and listening on port ${PORT}`);
 });
