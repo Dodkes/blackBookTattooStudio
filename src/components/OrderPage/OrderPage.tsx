@@ -8,7 +8,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 const SITE_KEY = import.meta.env.VITE_SITE_KEY;
 // const HOST = import.meta.env.VITE_HOST;
-const HOST = "http://188.245.201.83:8080";
+const HOST = "https://blackbooktattoostudio.cz:8080";
 
 type FormValues = {
   name: string;
