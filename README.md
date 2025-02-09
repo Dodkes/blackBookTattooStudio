@@ -24,8 +24,6 @@ Server side:
 
 ## Tech stack
 
-- connected google analytics
-
 ### Frontend
 
 - React + Typescript
@@ -48,3 +46,8 @@ Server side:
 - material-ui
 - google maps api
 - react carousel
+
+### Other
+
+- Connected Google Analytis
+- SSL by CloudFlare
