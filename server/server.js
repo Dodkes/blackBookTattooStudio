@@ -101,7 +101,7 @@ app.post("/order", async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: "mrkkakarko@gmail.com",
     subject: `Nová objednávka [${data.service}]`,
     html: mailTemplate,
   };
