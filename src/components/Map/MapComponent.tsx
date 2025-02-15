@@ -1,42 +1,40 @@
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
-} from "@vis.gl/react-google-maps";
-const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string;
+import { useEffect, useRef } from "react";
+import "ol/ol.css";
+import { Map, View } from "ol";
+import TileLayer from "ol/layer/Tile";
+import { OSM } from "ol/source";
+import { fromLonLat } from "ol/proj";
 
 export default function MapComponent() {
-  const mapContainerStyle = {
-    width: "100%",
-    height: "400px",
-  };
+  const mapDivRef = useRef<HTMLDivElement>(null);
 
-  const center = {
-    lat: 49.94914934517503,
-    lng: 15.26553614529326,
-  };
+  useEffect(() => {
+    const map = new Map({
+      target: mapDivRef.current as HTMLElement,
+      layers: [
+        new TileLayer({
+          source: new OSM(),
+        }),
+      ],
+      view: new View({
+        center: fromLonLat([15.26553614529326, 49.94914934517503]),
+        zoom: 19,
+      }),
+    });
+
+    return () => {
+      map.setTarget(undefined);
+    };
+  }, []);
 
   return (
-    <APIProvider
-      apiKey={apiKey}
-      onLoad={() => console.log("Maps API has loaded.")}
-    >
-      <Map
-        style={mapContainerStyle}
-        defaultZoom={18}
-        defaultCenter={center}
-        mapId={"e4ed0a59f2065b17"}
-      >
-        <AdvancedMarker position={center}>
-          <Pin
-            background={"white"}
-            glyphColor={"black"}
-            borderColor={"black"}
-            scale={1.5}
-          />
-        </AdvancedMarker>
-      </Map>
-    </APIProvider>
+    <div
+      ref={mapDivRef}
+      style={{
+        width: "100%",
+        height: "400px",
+        filter: "grayscale(100%) contrast(80%)",
+      }}
+    ></div>
   );
 }
