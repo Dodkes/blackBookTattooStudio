@@ -53,7 +53,7 @@ export default function Faq() {
     },
     {
       question: "Můžu platit online?",
-      answer: "Ano, přijímáme platby online přes platební bránu.",
+      answer: "Platit online nelze, přijímáme platby pouze na míste.",
     },
     {
       question: "Můžu platit v eurech?",

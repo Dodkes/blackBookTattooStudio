@@ -50,4 +50,4 @@ Server side:
 ### Other
 
 - Connected Google Analytis
-- SSL by CloudFlare
+- SSL by letsencrypt
