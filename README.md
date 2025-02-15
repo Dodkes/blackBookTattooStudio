@@ -44,7 +44,7 @@ Server side:
 - Akar Icons
 - reCaptchav2
 - material-ui
-- google maps api
+- open layer maps
 - react carousel
 
 ### Other
