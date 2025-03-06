@@ -27,18 +27,20 @@ jobs:
 
       - name: Build React app
         env:
-          VITE_GOOGLE_MAPS_API_KEY: ${{ secrets.VITE_GOOGLE_MAPS_API_KEY }} # Ref to Google Maps API Key
           VITE_SECRET_KEY: ${{ secrets.VITE_SECRET_KEY }} # Ref to Github Secrets recaptcha backend
           VITE_SITE_KEY: ${{ secrets.VITE_SITE_KEY }} # Ref to Github Secrets recaptcha frontend
         run: npm run build
 
       - name: Print build size
-        run: ./scripts/build-size.sh
+        run: du -sh ./dist
 
-      - name: Copy static files
+      - name: Establish SSH connection
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        run: ./scripts/deploy-front-end.sh
+        run: ./scripts/establish-ssh.sh
+
+      - name: Copy static files
+        run: ./scripts/deploy-frontend.sh
 
       # - name: Deploy to GitHub Pages
       #   uses: peaceiris/actions-gh-pages@v3
