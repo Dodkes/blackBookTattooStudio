@@ -11,19 +11,22 @@
         top: 0;
         left: 50%;
         transform: translateX(-50%);
+        max-width: 1000px;
 
         >.faq-heading {
             color: white;
             text-transform: uppercase;
             letter-spacing: 5px;
             font-size: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 2.5rem;
         }
 
         >.grid-container {
             display: grid;
             grid-template-columns: auto auto auto;
             gap: 50px;
+            justify-content: center;
+            margin: 0 auto;
 
             >.grid-item {
                 >.faq-section-heading {
