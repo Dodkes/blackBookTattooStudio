@@ -13,12 +13,27 @@ _This is a project for a tattoo studio & barbershop._
 
 Client side:
 
-1. Run: `npm run dev`
-2. Build: `npm run build` to build your project to `./dist` folder
+1. Run project:
+
+```sh
+npm run dev
+```
+
+2. Build project in `./dist` dir:
+
+```sh
+npm run build
+```
 
 Server side:
 
-1. Run `node server.js` / `nodemon server.js` to start server
+1. Run
+
+```sh
+node server.js
+```
+
+to start server
 
 - Check .env variables in both `root` and `./server` projects
 
