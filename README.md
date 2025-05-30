@@ -1,4 +1,4 @@
-# Black Book Tattoo Studio
+![image info](./src/assets/logo.jpg)
 
 _This is a project for a tattoo studio & barbershop._
 
