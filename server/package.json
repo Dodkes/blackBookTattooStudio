@@ -1,0 +1,20 @@
+{
+  "name": "blackbooktattoostudio-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "log4js": "^6.9.1",
+    "nodemailer": "^6.9.16"
+  },
+  "author": "Jozef Zitt",
+  "license": "ISC",
+  "description": ""
+}
