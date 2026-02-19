@@ -190,15 +190,30 @@ function OrderBody() {
                 placeholder="Zpráva"
               />
             </div>
+            <input type="file" id="file-input" style={{ display: "none" }} />
+
+            <div
+              className="order-form-field-dropzone"
+              onClick={() => document.getElementById("file-input")?.click()}
+              // onDrop={handleDrop}
+              // onDragOver={handleDragOver}
+              // onDragLeave={handleDragLeave}
+            >
+              {/* <File size={24} /> */}
+              <p>Přetáhněte fotky sem nebo klikněte pro nahrání</p>
+            </div>
+
             <div>
               {!recaptchaToken && <p>Prosím, potvrďte, že nejste robot.</p>}
             </div>
             <br />
-            <ReCAPTCHA
-              sitekey={SITE_KEY}
-              onChange={generateRecaptchaToken}
-              onExpired={() => setRecaptchaToken("")}
-            />
+            <div className="order-form-field">
+              <ReCAPTCHA
+                sitekey={SITE_KEY}
+                onChange={generateRecaptchaToken}
+                onExpired={() => setRecaptchaToken("")}
+              />
+            </div>
             <button
               disabled={isSubmitting || !isValid}
               className="button-order-submit"

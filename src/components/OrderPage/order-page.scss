@@ -72,6 +72,25 @@
                 margin-top: 5px;
                 height: 12px;
             }
+
+            &-dropzone {
+                grid-column: 1/3;
+                text-align: center;
+                width: 100%;
+                height: 100px;
+                border: 2px dashed white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: rgb(26, 25, 25);
+                border-radius: 10px;
+
+                &:hover {
+                    background-color: rgb(26, 25, 25);
+                    border: 2px dotted white;
+                }
+            }
         }
 
         >.button-order-submit {
