@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Contact() {
   return (
-    <div className="contact-container">
+    <div id="contact" className="contact-container">
       <div>
         <Envelope className="contact-icon" />
         <div>
