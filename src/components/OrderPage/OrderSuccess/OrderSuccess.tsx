@@ -15,13 +15,11 @@ export default function OrderSuccess() {
         <h1>Objednavka úspěšně odeslána</h1>
         <p>Děkujeme za vaši objednávku !</p>
         <p>V nejbližší době vás budeme kontaktovat ohledně vašeho termínu.</p>
-        <button onClick={handleNavigate}>
+        <button className="btn" onClick={handleNavigate}>
           Přejít zpátky na <b>WEB</b>
         </button>
       </div>
-      <div className="footer">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

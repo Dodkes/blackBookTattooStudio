@@ -1,6 +1,7 @@
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Intro from "./components/Intro/Intro";
+import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import MapComponent from "./components/Map/MapComponent";
@@ -11,22 +12,28 @@ import OrderPage from "./components/OrderPage/OrderPage";
 import OrderSuccess from "./components/OrderPage/OrderSuccess/OrderSuccess";
 import OrderFailure from "./components/OrderPage/OrderFailure/OrderFailure";
 import ScrollToTop from "./components/utils/ScrollToTop";
+import useReveal from "./hooks/useReveal";
 
 function Home() {
   return (
     <>
       <Navbar />
-      <Intro />
-      <Contact />
-      <Gallery />
-      <MapComponent />
-      <Faq />
+      <main>
+        <Intro />
+        <About />
+        <Gallery />
+        <Faq />
+        <Contact />
+        <MapComponent />
+      </main>
       <Footer />
     </>
   );
 }
 
 function App() {
+  useReveal();
+
   return (
     <>
       <ScrollToTop />

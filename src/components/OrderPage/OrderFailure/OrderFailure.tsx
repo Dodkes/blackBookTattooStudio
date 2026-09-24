@@ -18,13 +18,11 @@ export default function OrderFailure() {
           uvedených kontaktů.
         </p>
         <p>Děkujeme za pochopení.</p>
-        <button onClick={handleNavigate}>
+        <button className="btn" onClick={handleNavigate}>
           Přejít zpátky na <b>formulár</b>
         </button>
       </div>
-      <div className="footer">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

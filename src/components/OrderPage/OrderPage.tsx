@@ -83,7 +83,15 @@ function OrderBody() {
 
   return (
     <div className="order-body-container">
-      <h1 className="order-heading">Objednat si termín</h1>
+      <div className="order-head">
+        <span className="eyebrow">Rezervace</span>
+        <h1 className="section-title">
+          Objednat si <em>termín.</em>
+        </h1>
+        <p>
+          Vyplňte formulář a my se vám co nejdříve ozveme s návrhem termínu.
+        </p>
+      </div>
       <Formik
         initialValues={formInitialValues}
         validationSchema={formValidationSchema}
@@ -102,6 +110,7 @@ function OrderBody() {
               <label htmlFor="name">Jméno *</label>
               <input
                 type="text"
+                id="name"
                 name="name"
                 value={values.name}
                 onChange={handleChange}
@@ -112,6 +121,7 @@ function OrderBody() {
               <label htmlFor="surname">Příjmení *</label>
               <input
                 type="text"
+                id="surname"
                 name="surname"
                 value={values.surname}
                 onChange={handleChange}
@@ -122,6 +132,7 @@ function OrderBody() {
               <label htmlFor="email">Email *</label>
               <input
                 type="email"
+                id="email"
                 name="email"
                 value={values.email}
                 onChange={handleChange}
@@ -133,6 +144,7 @@ function OrderBody() {
               <label htmlFor="phone">Telefon *</label>
               <input
                 type="tel"
+                id="phone"
                 name="phone"
                 value={values.phone}
                 onChange={handleChange}
@@ -142,6 +154,7 @@ function OrderBody() {
             <div className="order-form-field">
               <label htmlFor="service">Výběr služby</label>
               <select
+                id="service"
                 name="service"
                 defaultValue={values.service}
                 onChange={(e) => {
@@ -160,6 +173,7 @@ function OrderBody() {
             <div className="order-form-field">
               <label htmlFor="type">{isBarber ? "Střihání" : "Barva"}</label>
               <select
+                id="type"
                 name="type"
                 defaultValue={values.type}
                 onChange={handleChange}
@@ -184,27 +198,28 @@ function OrderBody() {
               </label>
               <textarea
                 maxLength={1000}
+                id="message"
                 name="message"
                 value={values.message}
                 onChange={handleChange}
                 placeholder="Zpráva"
               />
             </div>
-            <div>
+            <div className="order-form-captcha">
               {!recaptchaToken && <p>Prosím, potvrďte, že nejste robot.</p>}
+              <ReCAPTCHA
+                sitekey={SITE_KEY}
+                theme="dark"
+                onChange={generateRecaptchaToken}
+                onExpired={() => setRecaptchaToken("")}
+              />
             </div>
-            <br />
-            <ReCAPTCHA
-              sitekey={SITE_KEY}
-              onChange={generateRecaptchaToken}
-              onExpired={() => setRecaptchaToken("")}
-            />
             <button
               disabled={isSubmitting || !isValid}
-              className="button-order-submit"
+              className="btn btn--blood button-order-submit"
               type="submit"
             >
-              Odeslat
+              Odeslat <span className="btn-arrow">→</span>
             </button>
           </form>
         )}

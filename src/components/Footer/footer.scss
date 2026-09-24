@@ -1,57 +1,114 @@
 @use "../../breakpoints.scss" as bp;
 
-.footer-container {
-    >.footer-bottom-inline {
-        background-color: #5b5b5b;
-        padding: 10px 15px;
-        color: hsla(0, 0%, 100%, .5);
-        text-align: center;
-        font-size: 15px;
+.footer {
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+
+    >.footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1.4fr 1fr;
+        gap: 48px;
+        padding-top: clamp(56px, 8vw, 96px);
+        padding-bottom: clamp(56px, 8vw, 96px);
     }
 
-    >.footer-contact-container {
-        background-color: black;
-        padding: 50px 0;
+    .footer-brand {
+        .logo-mark {
+            width: 220px;
+        }
 
-        >.footer-contact-line {
-            width: 73%;
-            margin: auto;
-            color: white;
+        p {
+            margin: 18px 0 24px;
+            max-width: 280px;
+            color: var(--bone-dim);
+            line-height: 1.7;
+        }
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 10px;
+
+        a {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--line-strong);
+            border-radius: 50%;
+            color: var(--bone-dim);
+            transition: all 0.3s var(--ease);
+
+            &:hover {
+                color: var(--bone);
+                background: var(--blood);
+                border-color: var(--blood);
+            }
+        }
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        color: var(--bone-dim);
+        font-size: 15px;
+
+        h3 {
+            margin-bottom: 8px;
+            font-family: var(--font-mono);
+            font-weight: 400;
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--bone);
+        }
+
+        a {
+            width: fit-content;
+            transition: color 0.3s;
+
+            &:hover {
+                color: var(--blood-hot);
+            }
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding: 20px 0;
+        font-family: var(--font-mono);
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        color: rgba(236, 230, 220, 0.4);
+
+        >.container {
             display: flex;
             justify-content: space-between;
-            max-width: 1000px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
 
-            >.footer-contact-item {
-                font-size: 13px;
-                text-align: center;
+        a {
+            color: var(--bone-dim);
+            transition: color 0.3s;
 
-                >ul {
-                    display: flex;
-                    justify-content: center;
-                    gap: 10px;
-
-                    .footer-item-icon {
-                        color: white;
-                        transition: 0.3s;
-
-                        &:hover {
-                            color: rgba($color: #fff, $alpha: 0.7);
-                            transform: scale(1.2);
-                        }
-                    }
-                }
+            &:hover {
+                color: var(--bone);
             }
         }
     }
 }
 
-@media screen and (max-width: bp.$breakpoint-small) {
-    .footer-container {
-        >.footer-contact-container {
-            >.footer-contact-line {
-                flex-direction: column;
-                gap: 50px;
-            }
-        }
+@media (max-width: bp.$breakpoint-large) {
+    .footer>.footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: bp.$breakpoint-small) {
+    .footer>.footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
     }
 }

@@ -1,30 +1,141 @@
 @use "../../breakpoints.scss" as bp;
 
-.contact-container {
-    padding: 50px;
-    background-color: black;
-    color: white;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    text-align: center;
-    row-gap: 50px;
-    font-family: "Ubuntu Mono", monospace;
+.contact {
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(164, 22, 26, 0.22), transparent 70%),
+        var(--ink-2);
+    border-top: 1px solid var(--line);
 
-    .contact-icon {
-        margin: 10px auto;
+    // oversized watermark in the background
+    &::before {
+        content: "Black Book";
+        position: absolute;
+        left: 50%;
+        bottom: -0.2em;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-size: clamp(120px, 24vw, 360px);
+        line-height: 1;
+        white-space: nowrap;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(236, 230, 220, 0.06);
+        pointer-events: none;
     }
 
-    .contact-link {
-        transition: 0.3s;
+    .contact-head {
+        position: relative;
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto clamp(56px, 8vw, 96px);
 
-        &:hover {
-            color: rgba($color: #fff, $alpha: 0.7);
+        .eyebrow::after {
+            content: "";
+            width: 32px;
+            height: 1px;
+            background: var(--blood-hot);
+        }
+
+        .contact-title {
+            font-size: clamp(52px, 9vw, 128px);
+        }
+
+        p {
+            margin: 24px auto 40px;
+            max-width: 520px;
+            line-height: 1.8;
+            color: var(--bone-dim);
+        }
+    }
+
+    .contact-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .contact-cards {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line);
+        background: rgba(11, 11, 11, 0.5);
+
+        li {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: clamp(24px, 3vw, 36px);
+            border-right: 1px solid var(--line);
+            transition: background-color 0.4s;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            &:hover {
+                background: rgba(236, 230, 220, 0.03);
+            }
+        }
+
+        .contact-icon {
+            color: var(--blood-hot);
+            margin-bottom: 14px;
+        }
+
+        .contact-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--bone-dim);
+        }
+
+        .contact-link {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--bone);
+            word-break: break-word;
+            transition: color 0.3s;
+        }
+
+        a.contact-link:hover {
+            color: var(--blood-hot);
         }
     }
 }
 
-@media screen and (max-width: bp.$breakpoint-small) {
-    .contact-container {
-        grid-template-columns: auto;
+@media (max-width: bp.$breakpoint-large) {
+    .contact .contact-cards {
+        grid-template-columns: repeat(2, 1fr);
+
+        li {
+            border-bottom: 1px solid var(--line);
+
+            &:nth-child(2n) {
+                border-right: none;
+            }
+
+            &:nth-last-child(-n + 2) {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+@media (max-width: bp.$breakpoint-small) {
+    .contact .contact-cards {
+        grid-template-columns: 1fr;
+
+        li {
+            border-right: none;
+            border-bottom: 1px solid var(--line);
+
+            &:nth-last-child(2) {
+                border-bottom: 1px solid var(--line);
+            }
+        }
     }
 }
