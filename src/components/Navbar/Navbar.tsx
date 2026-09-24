@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { InstagramFill, FacebookFill } from "akar-icons";
+import { InstagramFill, FacebookFill } from "../utils/Icons";
 import logo from "../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 

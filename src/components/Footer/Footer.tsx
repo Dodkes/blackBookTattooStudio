@@ -1,4 +1,4 @@
-import { InstagramFill, Envelope, FacebookFill, Phone } from "akar-icons";
+import { InstagramFill, Envelope, FacebookFill, Phone } from "../utils/Icons";
 import logo from "../../assets/logo.jpg";
 
 export default function Footer() {

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { InstagramFill } from "akar-icons";
+import { InstagramFill } from "../utils/Icons";
 import IMG_1 from "../../assets/gallery/IMG_1.jpeg";
 import IMG_2 from "../../assets/gallery/IMG_2.jpeg";
 import IMG_3 from "../../assets/gallery/IMG_3.jpeg";

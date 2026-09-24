@@ -1,5 +1,11 @@
 @use "../../breakpoints.scss" as bp;
 
+.map-placeholder {
+    height: clamp(360px, 50vh, 520px);
+    background: var(--ink-3);
+    border-top: 1px solid var(--line);
+}
+
 .map {
     position: relative;
     border-top: 1px solid var(--line);

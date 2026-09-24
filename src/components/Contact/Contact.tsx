@@ -1,4 +1,4 @@
-import { Clock, Envelope, Location, Phone } from "akar-icons";
+import { Clock, Envelope, Location, Phone } from "../utils/Icons";
 import { Link } from "react-router-dom";
 
 export default function Contact() {
