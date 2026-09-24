@@ -12,9 +12,6 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^6.1.7",
-    "@mui/material": "^6.1.7",
-    "@mui/styled-engine-sc": "^6.1.7",
     "@react-google-maps/api": "^2.20.3",
     "@types/swiper": "^6.0.0",
     "akar-icons": "^1.9.31",

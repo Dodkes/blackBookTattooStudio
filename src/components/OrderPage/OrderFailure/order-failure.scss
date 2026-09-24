@@ -1,54 +1,38 @@
 @use "../../../breakpoints.scss" as bp;
 
 .order-failure-container {
-    height: 100vh;
-    background-color: rgb(26, 25, 25);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(164, 22, 26, 0.35), transparent 70%),
+        var(--ink);
 
     >.order-message-container {
-        font-size: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        max-width: 640px;
+        margin: 0 auto;
+        padding: calc(var(--nav-h) + 80px) var(--gutter) 96px;
         text-align: center;
-        color: white;
-        width: fit-content;
-        margin: auto;
-        padding: 10px;
-        margin-top: 250px;
-        border: 1px solid red;
-        background-color: rgba(255, 0, 0, 0.5);
+        color: var(--bone-dim);
+        line-height: 1.7;
 
         >h1 {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-family: var(--font-display);
+            font-weight: 400;
+            font-size: clamp(44px, 7vw, 80px);
+            line-height: 1;
+            color: var(--bone);
+            margin-bottom: 12px;
         }
 
-        >button {
-            margin-top: 10px;
-            cursor: pointer;
-            background-color: transparent;
-            border: none;
-            transition: 0.3s;
-
-            &:hover {
-                color: rgba(255, 255, 255, 0.7);
-            }
-        }
-    }
-}
-
-@media screen and (max-width: bp.$breakpoint-small) {
-    .order-failure-container {
-        >.order-message-container {
-            font-size: 10px;
-            margin-top: 150px;
-            margin-bottom: 150px;
-
-            >h1 {
-                font-size: 15px;
-                letter-spacing: 1px;
-            }
+        >.btn {
+            margin-top: 28px;
         }
     }
 }

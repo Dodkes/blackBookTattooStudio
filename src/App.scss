@@ -1,11 +1,14 @@
 @use "./reset.scss";
 @use "./fonts.scss";
+@use "./theme.scss";
 @use "./components/Navbar/navbar.scss";
 @use "./components/Intro/intro.scss";
+@use "./components/About/about.scss";
 @use "./components/Contact/contact.scss";
 @use "./components/Footer/footer.scss";
 @use "./components/Faq/faq.scss";
 @use "./components/Gallery/gallery.scss";
+@use "./components/Map/map.scss";
 @use "./components/OrderPage/order-page.scss";
-@use "./components/OrderPage//OrderSuccess/order-success.scss";
-@use "./components/OrderPage//OrderFailure/order-failure.scss";
+@use "./components/OrderPage/OrderSuccess/order-success.scss";
+@use "./components/OrderPage/OrderFailure/order-failure.scss";

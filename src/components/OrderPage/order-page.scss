@@ -1,132 +1,138 @@
 @use "../../breakpoints.scss" as bp;
 
 .order-page-container {
-    height: 100vh;
-    background-color: rgb(26, 25, 25);
-    color: white;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(164, 22, 26, 0.18), transparent 70%),
+        var(--ink);
 
     >.order-body-container {
-        height: 100%;
-        background-color: rgb(26, 25, 25);
+        max-width: 880px;
+        margin: 0 auto;
+        padding: calc(var(--nav-h) + clamp(48px, 8vw, 96px)) var(--gutter) clamp(80px, 10vw, 128px);
 
-        >.order-heading {
-            text-transform: uppercase;
+        >.order-head {
             text-align: center;
-            letter-spacing: 5px;
-            font-size: 20px;
-            width: 60%;
-            margin: 30px auto;
-            background-color: black;
-            color: white;
-            padding: 5px;
+            margin-bottom: clamp(40px, 6vw, 64px);
+
+            .eyebrow::after {
+                content: "";
+                width: 32px;
+                height: 1px;
+                background: var(--blood-hot);
+            }
+
+            p {
+                margin-top: 20px;
+                color: var(--bone-dim);
+                line-height: 1.7;
+            }
         }
     }
 
     .order-form {
-        position: relative;
-        margin: 0 auto;
         display: grid;
-        grid-template-columns: auto auto;
-        width: 60%;
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 32px;
+        padding: clamp(24px, 4vw, 48px);
+        border: 1px solid var(--line);
+        background: rgba(19, 18, 18, 0.7);
 
         >.order-form-field {
+            display: flex;
+            flex-direction: column;
 
-            >input {
+            >label {
+                font-family: var(--font-mono);
+                font-size: 12px;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--bone-dim);
+            }
+
+            >input,
+            >select,
+            textarea {
                 width: 100%;
-                color: black;
-                outline: none;
                 margin-top: 10px;
-                padding: 5px;
-                font-weight: bold;
+                padding: 12px 0;
+                border: none;
+                border-bottom: 1px solid var(--line-strong);
+                border-radius: 0;
+                background: transparent;
+                color: var(--bone);
+                font-size: 16px;
+                outline: none;
+                transition: border-color 0.3s;
+
+                &::placeholder {
+                    color: rgba(236, 230, 220, 0.3);
+                }
+
+                &:focus {
+                    border-bottom-color: var(--blood-hot);
+                }
             }
 
             >select {
-                width: 100%;
-                color: black;
-                outline: none;
-                margin-top: 10px;
-                padding: 5px;
-                font-weight: bold;
-                height: 38px;
+                appearance: none;
+                cursor: pointer;
+                background-image: linear-gradient(45deg, transparent 50%, var(--bone-dim) 50%),
+                    linear-gradient(135deg, var(--bone-dim) 50%, transparent 50%);
+                background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%;
+                background-size: 5px 5px;
+                background-repeat: no-repeat;
+
+                option {
+                    background: var(--ink-2);
+                    color: var(--bone);
+                }
             }
 
-            & textarea {
-                width: 100%;
-                color: black;
-                outline: none;
-                margin-top: 10px;
-                padding: 5px;
-                font-weight: bold;
-                resize: none;
-                height: 114px;
+            textarea {
+                resize: vertical;
+                min-height: 130px;
+                padding: 12px;
+                border: 1px solid var(--line-strong);
+
+                &:focus {
+                    border-color: var(--blood-hot);
+                }
             }
 
             &.message {
-                grid-column: 1/3;
+                grid-column: 1 / -1;
             }
 
             >.form-field-error-message {
-                color: red;
+                min-height: 16px;
+                margin-top: 6px;
                 font-size: 12px;
-                margin-top: 5px;
-                height: 12px;
+                color: var(--blood-hot);
+            }
+        }
+
+        >.order-form-captcha {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            p {
+                font-size: 14px;
+                color: var(--bone-dim);
             }
         }
 
         >.button-order-submit {
-            grid-column: 1/3;
-            background-color: rgb(26, 25, 25);
-            font-weight: bold;
-            border: 2px solid white;
-            color: white;
-            padding: 5px 20px;
-            cursor: pointer;
-            transition: 0.3s;
-
-            &:disabled {
-                border: 2px solid #5b5b5b;
-                color: #5b5b5b;
-                cursor: not-allowed;
-            }
-
-            &:hover:enabled {
-                background-color: white;
-                color: rgb(26, 25, 25);
-                border: 2px solid rgb(26, 25, 25);
-            }
+            grid-column: 1 / -1;
+            justify-content: center;
         }
     }
 }
 
-
-
-@media screen and (max-width: bp.$breakpoint-medium) {
-    .order-page-container {
-        >.order-body-container {
-            height: auto;
-            padding-bottom: 100px;
-        }
-
-        .order-form-field {
-            grid-column: 1/3;
-        }
-    }
-}
-
-@media screen and (max-width: bp.$breakpoint-large) {
-    .order-page-container {
-        >.order-body-container {
-            >.order-heading {
-                font-size: 15px;
-                letter-spacing: 1px;
-                width: 85%;
-            }
-        }
-
-        .order-form {
-            width: 85%;
-        }
-
+@media (max-width: bp.$breakpoint-medium) {
+    .order-page-container .order-form {
+        grid-template-columns: 1fr;
     }
 }

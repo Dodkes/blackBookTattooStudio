@@ -1,58 +1,240 @@
 @use "../../breakpoints.scss" as bp;
 
 .navbar {
-    background-color: black;
-    top: 0;
-    left: 0;
-    height: 30px;
-    position: relative;
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    height: var(--nav-h);
+    transition: background-color 0.4s var(--ease), border-color 0.4s var(--ease),
+        backdrop-filter 0.4s var(--ease);
+    border-bottom: 1px solid transparent;
 
-    .navbar-items {
-        display: flex;
-        gap: 10px;
-        align-items: center;
+    &.is-scrolled {
+        background: rgba(11, 11, 11, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom-color: var(--line);
+    }
+
+    // backdrop-filter would trap the fixed mobile menu inside the bar
+    &.is-open {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    >.navbar-inner {
         height: 100%;
-        width: fit-content;
-        position: absolute;
-        left: 10%;
+        max-width: calc(var(--max) + 2 * var(--gutter));
+        margin: 0 auto;
+        padding: 0 var(--gutter);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
 
-        .navbar-item-icon {
-            color: white;
-            transition: 0.3s;
+    .logo-link {
+        position: relative;
+        z-index: 2;
+        flex-shrink: 0;
+
+        .logo-mark {
+            width: clamp(150px, 16vw, 210px);
+        }
+    }
+
+    .navbar-links {
+        display: flex;
+        gap: clamp(20px, 3vw, 44px);
+
+        a {
+            position: relative;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--bone-dim);
+            transition: color 0.3s;
+            padding: 6px 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 1px;
+                width: 100%;
+                background: var(--blood-hot);
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.4s var(--ease);
+            }
 
             &:hover {
-                color: rgba($color: #fff, $alpha: 0.7);
-                transform: scale(1.2);
+                color: var(--bone);
+
+                &::after {
+                    transform: scaleX(1);
+                    transform-origin: left;
+                }
+            }
+        }
+
+        .navbar-link-index {
+            display: none;
+        }
+    }
+
+    .navbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .navbar-social {
+        color: var(--bone-dim);
+        transition: color 0.3s, transform 0.3s;
+
+        &:hover {
+            color: var(--bone);
+            transform: translateY(-2px);
+        }
+    }
+
+    .navbar-cta {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 10px 18px;
+        border: 1px solid var(--blood);
+        background: var(--blood);
+        color: var(--bone);
+        transition: background-color 0.3s, border-color 0.3s;
+
+        &:hover {
+            background: var(--blood-hot);
+            border-color: var(--blood-hot);
+        }
+    }
+
+    .navbar-burger {
+        display: none;
+        width: 36px;
+        height: 36px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+
+        span {
+            position: absolute;
+            left: 6px;
+            right: 6px;
+            height: 1.5px;
+            background: var(--bone);
+            transition: transform 0.4s var(--ease), top 0.4s var(--ease);
+
+            &:first-child {
+                top: 13px;
+            }
+
+            &:last-child {
+                top: 21px;
             }
         }
     }
 
-    >.logo-link {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+    &.is-open .navbar-burger span {
+        &:first-child {
+            top: 17px;
+            transform: rotate(45deg);
+        }
+
+        &:last-child {
+            top: 17px;
+            transform: rotate(-45deg);
+        }
     }
 }
 
-@media screen and (max-width: bp.$breakpoint-small) {
+@media (max-width: bp.$breakpoint-large) {
     .navbar {
-        position: static;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column-reverse;
-        height: 60px;
-
-        .navbar-items {
-            position: static;
-
+        .navbar-burger {
+            display: block;
         }
 
-        >.logo-link {
-            position: static;
-            transform: none;
+        .navbar-links {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+            padding: var(--nav-h) var(--gutter) 40px;
+            background: var(--ink);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s var(--ease), visibility 0.4s;
+
+            li {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+            }
+
+            a {
+                display: flex;
+                align-items: baseline;
+                gap: 16px;
+                font-family: var(--font-display);
+                font-size: clamp(48px, 12vw, 80px);
+                letter-spacing: 0;
+                text-transform: none;
+                color: var(--bone);
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            .navbar-link-index {
+                display: inline;
+                font-family: var(--font-mono);
+                font-size: 13px;
+                color: var(--blood-hot);
+                letter-spacing: 0.2em;
+            }
+        }
+
+        &.is-open .navbar-links {
+            opacity: 1;
+            visibility: visible;
+
+            li {
+                opacity: 1;
+                transform: none;
+            }
         }
     }
+}
 
+@media (max-width: bp.$breakpoint-small) {
+    .navbar {
+        .navbar-social {
+            display: none;
+        }
+
+        .navbar-actions {
+            gap: 10px;
+        }
+
+        .navbar-cta {
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+    }
 }

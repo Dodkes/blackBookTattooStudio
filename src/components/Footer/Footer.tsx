@@ -1,76 +1,89 @@
 import { InstagramFill, Envelope, FacebookFill, Phone } from "akar-icons";
-import { Link } from "react-router-dom";
+import logo from "../../assets/logo.jpg";
 
 export default function Footer() {
   return (
-    <div className="footer-container">
-      <div className="footer-contact-container">
-        <div className="footer-contact-line">
-          <div className="footer-contact-item">
-            <p>
-              TEL: <a href="tel:+420777777777">+420 731 724 709</a>
-            </p>
-            <p>
-              MAIL:
-              <a href="mailto:mrkkakarko@gmail.com"> mrkkakarko@gmail.com</a>
-            </p>
-          </div>
-          <div className="footer-contact-item">
-            <p>
+    <footer className="footer">
+      <div className="container footer-grid">
+        <div className="footer-brand">
+          <span
+            className="logo-mark"
+            role="img"
+            aria-label="Black Book Tattoo Studio"
+            style={{ "--logo": `url(${logo})` } as React.CSSProperties}
+          />
+          <p>Profesionální tetovací studio v Kutné Hoře.</p>
+          <ul className="footer-socials">
+            <li>
               <a
-                href="https://maps.app.goo.gl/9wA8rsC4XSvdKm1N6"
+                href="https://www.instagram.com/black_book_tattoo_studio/"
                 target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
               >
-                Husova 114, Kutná Hora <br />
-                Česká republika
+                <InstagramFill size={16} />
               </a>
-            </p>
-          </div>
-          <div className="footer-contact-item">
-            <Link to="/order">
-              <p>Otevírací hodiny</p>
-              <p>Na objednávku</p>
-            </Link>
-          </div>
-          <div className="footer-contact-item">
-            <ul>
-              <li>
-                <a
-                  href="https://www.instagram.com/black_book_tattoo_studio/"
-                  target="_blank"
-                >
-                  <InstagramFill size={15} className="footer-item-icon" />
-                </a>
-              </li>
-              <li>
-                <a href="mailto:mrkkakarko@gmail.com">
-                  <Envelope size={15} className="footer-item-icon" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.facebook.com/profile.php?id=61553848974856"
-                  target="_blank"
-                >
-                  <FacebookFill size={15} className="footer-item-icon" />
-                </a>
-              </li>
-              <li>
-                <a href="tel:+420731724709">
-                  <Phone size={15} className="footer-item-icon" />
-                </a>
-              </li>
-            </ul>
-          </div>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/profile.php?id=61553848974856"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+              >
+                <FacebookFill size={16} />
+              </a>
+            </li>
+            <li>
+              <a href="mailto:mrkkakarko@gmail.com" aria-label="E-mail">
+                <Envelope size={16} />
+              </a>
+            </li>
+            <li>
+              <a href="tel:+420731724709" aria-label="Telefon">
+                <Phone size={16} />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <h3>Menu</h3>
+          <a href="/#studio">Studio</a>
+          <a href="/#gallery">Galerie</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#contact">Kontakt</a>
+        </div>
+
+        <div className="footer-col">
+          <h3>Kontakt</h3>
+          <a href="tel:+420731724709">+420 731 724 709</a>
+          <a href="mailto:mrkkakarko@gmail.com">mrkkakarko@gmail.com</a>
+          <a
+            href="https://maps.app.goo.gl/9wA8rsC4XSvdKm1N6"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Husova 114, Kutná Hora
+          </a>
+        </div>
+
+        <div className="footer-col">
+          <h3>Otevírací hodiny</h3>
+          <span>Na objednávku</span>
         </div>
       </div>
-      <div className="footer-bottom-inline">
-        © {new Date().getFullYear()}
-        <strong> Black Book Tattoo Studio</strong> | Vytvořil
-        <strong>
-          <a href="mailto:dodo.zitt@gmail.com"> Dodkes</a>
-        </strong>
+
+      <div className="footer-bottom">
+        <div className="container">
+          <span>
+            © {new Date().getFullYear()} Black Book Tattoo Studio
+          </span>
+          <span>
+            Vytvořil <a href="mailto:dodo.zitt@gmail.com">Dodkes</a>
+          </span>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }
